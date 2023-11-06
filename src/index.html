@@ -4,10 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
 
     <title>Frontend Mentor | Dictionary web app</title>
   </head>
-  <body></body>
+  <body>
+    <nav class="navbar">
+      <img src="../assets/images/logo.svg" alt="" />
+      <form>
+        <div>
+          <select>
+            <option value="serif">serif</option>
+            <option value="sans-serif">sans-serif</option>
+            <option value="mono">mono</option>
+          </select>
+          <button type="submit"><img src="../assets/images/icon-arrow-down.svg" alt="" /></button>
+        </div>
+      </form>
+      <img src="../assets/images/icon-moon.svg" alt="" />
+    </nav>
+
+    <!-- Main -->
+    <div class="searchbar">
+      <form action="" id="searchbar__form">
+        <input id="searchbar__input" type="text" placeholder="keyboard" />
+        <img src="../assets/images/icon-search.svg" alt="" />
+      </form>
+    </div>
+    <main class="main">
+      <h1 id="main__header"></h1>
+      <span id="main__span"></span>
+
+      <!-- Noun -->
+      <h2>noun</h2>
+      <h3 id="main__meaning">Meaning</h3>
+      <div id="main__list__container">
+        <!-- <ul class="main__list">
+          <li class="main__listing"></li>
+          <li class="main__listing"></li>
+        </ul> -->
+      </div>
+
+      <!-- Synonyms -->
+      <div class="main__synonyms__container">
+        <h3 class="main__synonyms__header">Synonyms</h3>
+        <span id="main__synonyms__span">span hodler</span>
+      </div>
+
+      <!-- Verb -->
+      <h2>verb</h2>
+      <h3>Meaning</h3>
+      <ul>
+        <li></li>
+        <li></li>
+      </ul>
+    </main>
+    <footer>
+      <h5>source</h5>
+      <span>www.webiste.com</span>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
 </html>
 
