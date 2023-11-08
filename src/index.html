@@ -9,31 +9,36 @@
     <title>Frontend Mentor | Dictionary web app</title>
   </head>
   <body>
-    <nav class="navbar">
-      <img src="../assets/images/logo.svg" alt="" />
-      <form>
-        <div>
-          <select>
-            <option value="serif">serif</option>
-            <option value="sans-serif">sans-serif</option>
-            <option value="mono">mono</option>
-          </select>
-          <button type="submit"><img src="../assets/images/icon-arrow-down.svg" alt="" /></button>
-        </div>
-      </form>
-      <img src="../assets/images/icon-moon.svg" alt="" />
-    </nav>
+    <header class="header">
+      <nav class="header__nav">
+        <img src="../assets/images/logo.svg" alt="" />
+        <form>
+          <div>
+            <select>
+              <option value="serif">serif</option>
+              <option value="sans-serif">sans-serif</option>
+              <option value="mono">mono</option>
+            </select>
+            <button type="submit"><img src="../assets/images/icon-arrow-down.svg" alt="" /></button>
+          </div>
+        </form>
+        <img src="../assets/images/icon-moon.svg" alt="" />
+      </nav>
 
-    <!-- Main -->
-    <div class="searchbar">
-      <form action="" id="searchbar__form">
-        <input id="searchbar__input" type="text" placeholder="keyboard" />
-        <img src="../assets/images/icon-search.svg" alt="" />
-      </form>
-    </div>
+      <div class="header__searchbar">
+        <form action="" id="header__searchbar__form">
+          <input id="header__searchbar__input" type="text" placeholder="keyboard" />
+          <img src="../assets/images/icon-search.svg" alt="" />
+        </form>
+      </div>
+    </header>
+
     <main class="main">
       <h1 id="main__header"></h1>
-      <span id="main__span"></span>
+      <div class="main__phonetic__container">
+        <span id="main__span"></span>
+        <img src="../assets/images/icon-play.svg" alt="" />
+      </div>
 
       <!-- Noun -->
       <h2>noun</h2>
