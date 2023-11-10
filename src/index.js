@@ -1,13 +1,12 @@
 let api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
 let searchbarForm = document.getElementById('header__searchbar__form');
-
+let headerSpan = document.getElementById('header__span');
 let word = document.getElementById('main__header');
 let phoneticsSpan = document.getElementById('main__span');
-let meaning = document.getElementById('main__meaning');
-let mainListContainer = document.getElementById('main__list__container');
+let mainNounListContainer = document.getElementById('main__noun__list__container');
 let synonymsSpan = document.getElementById('main__synonyms__span');
-console.log('synonyms-container', synonymsSpan);
+let playIcon = document.getElementById('main__play__icon');
 
 searchbarForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -15,7 +14,7 @@ searchbarForm.addEventListener('submit', (e) => {
   let searchbarInput = document.getElementById('header__searchbar__input').value;
 
   if (searchbarInput === '') {
-    alert('Please enter a word to search for.');
+    headerSpan.innerHTML = 'Please enter a word';
   } else {
     // FETCH API CALL
     fetch(`${api_url}/${searchbarInput}`)
@@ -36,33 +35,72 @@ searchbarForm.addEventListener('submit', (e) => {
           phoneticsSpan.innerHTML = 'Phonetics not listed';
         }
 
-        mainListContainer.innerHTML = '';
+        // Using find method to find the first instance of phonetic sound
+
+        let firstPhoneticSound = phonetics.find((phoneticSound) => {
+          return phoneticSound.audio;
+        });
+
+        let firstPhoneticSoundAudio = firstPhoneticSound.audio;
+
+        // Create an HTML Audio element
+        const audioElement = new Audio(firstPhoneticSoundAudio);
+
+        // when i click the play button i want the audio to play
+
+        function playAudio() {
+          audioElement.play();
+        }
+
+        playIcon.addEventListener('click', playAudio);
+
+        mainNounListContainer.innerHTML = '';
 
         // Create UL List
-        const list = document.createElement('ul');
-        list.className = 'main__list';
+        const nounList = document.createElement('ul');
+        nounList.className = 'main__noun__list';
 
         const meanings = data[0].meanings;
         meanings
           .filter((meaning) => {
+            console.log('noun', meaning.partOfSpeech === 'noun');
             return meaning.partOfSpeech === 'noun';
           })
           .forEach((meaning) => {
             // we are looping over the data (meanings array within the data array)
             // Create List Item inside the forEach
-            // Updating each listitem to the meaning definition
+            const nounListItem = document.createElement('li');
+
+            // Loop over the defintiions array
+            meaning.definitions.forEach((definitionObject) => {
+              const definition = definitionObject.definition;
+              nounListItem.innerHTML += `<li>${definition}</li>`;
+            });
+
             // Attaching the listitem to the UL
-            const listItem = document.createElement('li');
-            listItem.innerHTML = meaning.definitions[0].definition;
-            console.log('definitions', meaning.definitions[0].definition);
-            list.appendChild(listItem);
+            nounList.appendChild(nounListItem);
           });
 
         // Append the UL list to the container
-        mainListContainer.appendChild(list);
+        mainNounListContainer.appendChild(nounList);
 
-        // Span
-        console.log('synonyms', data[0].meanings[0].synonyms);
+        // Span meanings[0] = partofSpeech noun
+        let synonymsArr = data[0].meanings[0].synonyms.join(', ');
+        synonymsSpan.innerHTML = synonymsArr;
+
+        // Verb meaning
+
+        meanings
+          .filter((meaning) => {
+            console.log('verb', meaning.partOfSpeech === 'verb');
+            return meaning.partOfSpeech === 'verb';
+          })
+          .forEach((meaning) => {
+            console.log(meaning.definitions);
+
+            const verbListItem = document.createElement('li');
+            meaning.definitions.forEach(() => {});
+          });
       })
       .catch((error) => {
         console.error('An error occurred:', error);

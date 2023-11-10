@@ -8,6 +8,10 @@
   display: flex;
   justify-content: space-evenly;
 }
+.header__span {
+  margin-top: 50px;
+  display: inline-block;
+}
 
 .main {
   width: 800px;
