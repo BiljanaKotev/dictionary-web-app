@@ -11,24 +11,26 @@
   <body>
     <header class="header">
       <nav class="header__nav">
-        <img src="../assets/images/logo.svg" alt="" />
+        <img class="header__nav__logo" src="../assets/images/logo.svg" alt="logo" />
         <form>
           <div>
-            <select>
+            <select class="header__select">
               <option value="serif">serif</option>
               <option value="sans-serif">sans-serif</option>
               <option value="mono">mono</option>
             </select>
-            <button type="submit"><img src="../assets/images/icon-arrow-down.svg" alt="" /></button>
+            <button type="submit"><img src="../assets/images/icon-arrow-down.svg" alt="arrow down" /></button>
           </div>
         </form>
         <img src="../assets/images/icon-moon.svg" alt="moon icon" />
       </nav>
 
       <div class="header__searchbar">
-        <form action="" id="header__searchbar__form">
-          <input id="header__searchbar__input" type="text" placeholder="keyboard" />
-          <img src="../assets/images/icon-search.svg" alt="search icon" />
+        <form action="" id="header__searchbar__form" class="header__searchbar__form">
+          <input id="header__searchbar__input" class="header__searchbar__input" type="text" placeholder="keyboard" />
+          <div class="header__searchbar__img__container">
+            <img class="header__searchbar__img" src="../assets/images/icon-search.svg" alt="search icon" />
+          </div>
         </form>
         <span id="header__span" class="header__span"></span>
       </div>
@@ -68,14 +70,14 @@
       <h3>Meaning</h3>
       <div id="main__verb__list__container">
         <ul id="main__verb__list">
-          <li class="main__listing">To type on a computer keyboard.</li>
+          <li class="main__verb__listing">To type on a computer keyboard.</li>
         </ul>
-        <span id="main__verb__span">"Keyboarding is the part of this job I hate the most."</span>
       </div>
+      <span id="main__verb__span">"Keyboarding is the part of this job I hate the most."</span>
     </main>
     <footer>
       <h5>source</h5>
-      <span>www.webiste.com</span>
+      <span id="src-url">www.webiste.com</span>
     </footer>
 
     <script src="index.js"></script>

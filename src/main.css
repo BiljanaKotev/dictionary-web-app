@@ -1,22 +1,64 @@
-/* #e9e9e9
-#f4f4f4 #ffffff #2d2d2d */
+@import '/src/fonts.css';
+/* #f4f4f4 #ffffff #2d2d2d */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#main__header {
+  font-family: "InconsolataVariable", sans-serif;
+}
+
 .header {
-  width: 800px;
   margin: 50px auto;
 }
 .header__nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 200px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+.header__nav__logo {
+  width: 28px;
+}
+.header__select {
+  appearance: none;
+  border: none;
+}
+.header__searchbar__form {
+  display: flex;
+  justify-content: center;
+}
+.header__searchbar__input {
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: #e9e9e9;
+  width: 100%;
+}
+.header ::placeholder {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.header__searchbar__img__container {
+  position: relative;
+}
+.header__searchbar__img {
+  position: absolute;
+  right: 0;
 }
 .header__span {
   margin-top: 50px;
   display: inline-block;
 }
 
-.main {
-  width: 800px;
-  margin: 0 auto;
-}
 .main__phonetic__container {
   display: flex;
   justify-content: space-between;

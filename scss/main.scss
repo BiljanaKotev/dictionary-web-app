@@ -1,20 +1,75 @@
+@import '/src/fonts.css';
+
 $primary-color: #050505;
 $header-color: #1f1f1f;
 $list-color: #3a3a3a;
 $span-color: #757575;
 $accent-color: #a445ed;
 $error-color: #ff5252;
+$input-color: #e9e9e9;
 
-/* #e9e9e9
-#f4f4f4 #ffffff #2d2d2d */
+/* #f4f4f4 #ffffff #2d2d2d */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#main__header {
+  font-family: 'InconsolataVariable', sans-serif;
+}
 
 .header {
-  width: 800px;
   margin: 50px auto;
 
   &__nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    gap: 200px;
+    margin-bottom: 50px;
+    align-items: center;
+
+    &__logo {
+      width: 28px;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    border: none;
+  }
+
+  &__searchbar__form {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__searchbar__input {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background: #e9e9e9;
+    width: 100%;
+  }
+
+  ::placeholder {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+  &__searchbar__img__container {
+    position: relative;
+  }
+
+  &__searchbar__img {
+    position: absolute;
+    right: 0;
   }
 
   &__span {
@@ -24,9 +79,6 @@ $error-color: #ff5252;
 }
 
 .main {
-  width: 800px;
-  margin: 0 auto;
-
   &__phonetic__container {
     display: flex;
     justify-content: space-between;
