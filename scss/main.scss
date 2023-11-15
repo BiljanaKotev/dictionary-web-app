@@ -1,4 +1,4 @@
-@import '/src/fonts.css';
+@import 'fonts.css';
 
 $primary-color: #050505;
 $header-color: #1f1f1f;
@@ -7,6 +7,9 @@ $span-color: #757575;
 $accent-color: #a445ed;
 $error-color: #ff5252;
 $input-color: #e9e9e9;
+$heading-font-size: 20px;
+$sub-heading-font-size: 16px;
+$base-font-size: 14px;
 
 /* #f4f4f4 #ffffff #2d2d2d */
 
@@ -17,10 +20,7 @@ $input-color: #e9e9e9;
 body {
   width: 600px;
   margin: 0 auto;
-}
-
-#main__header {
-  font-family: 'InconsolataVariable', sans-serif;
+  font-family: 'InterVariable', sans-serif;
 }
 
 .header {
@@ -32,15 +32,45 @@ body {
     gap: 200px;
     margin-bottom: 50px;
     align-items: center;
+    position: relative;
 
     &__logo {
       width: 28px;
     }
   }
 
-  &__select {
-    appearance: none;
+  &__font__selection__wrapper {
+    position: relative;
+    left: 200px;
+
+    select {
+      appearance: none;
+      border: none;
+    }
+
+    div {
+      // width: 100px;
+      // height: 25px;
+      position: absolute;
+      top: 25px;
+    }
+  }
+
+  &__font__ul {
+    button {
+      background-color: transparent;
+      border: none;
+      display: block;
+    }
+  }
+
+  &__selection__submit__btn {
     border: none;
+    background-color: transparent;
+  }
+
+  &__select__img {
+    align-self: flex-start;
   }
 
   &__searchbar__form {
@@ -52,16 +82,20 @@ body {
     height: 40px;
     border-radius: 5px;
     border: none;
-    background: #e9e9e9;
+    background-color: $input-color;
     width: 100%;
-  }
-
-  ::placeholder {
     color: #000;
-    font-size: 14px;
+    font-size: $base-font-size;
     font-weight: bold;
     padding-left: 10px;
   }
+
+  // ::placeholder {
+  //   color: #000;
+  //   font-size: 14px;
+  //   font-weight: bold;
+  //   padding-left: 10px;
+  // }
 
   &__searchbar__img__container {
     position: relative;
@@ -70,6 +104,8 @@ body {
   &__searchbar__img {
     position: absolute;
     right: 0;
+    bottom: 10px;
+    padding-right: 15px;
   }
 
   &__span {
@@ -79,16 +115,108 @@ body {
 }
 
 .main {
+  &__header {
+    font-weight: bold;
+  }
+
+  &__span {
+    color: $accent-color;
+  }
+
+  &__heading__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  &__heading__container > h2 {
+    font-size: $heading-font-size;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  &__heading__container hr {
+    flex: 1; /* This will make the hr take up all available space, pushing h2 to the side */
+    height: 1px; /* Set a height for the hr */
+    border: none; /* Remove default border for hr */
+    background-color: #000; /* Set a color for the hr */
+    margin-left: 10px; /* Adjust margin as needed */
+  }
+
+  h3 {
+    color: $span-color;
+    font-size: $sub-heading-font-size;
+    margin-bottom: 25px;
+  }
+
+  &__noun__list {
+    margin-bottom: 50px;
+    font-size: $base-font-size;
+  }
+
+  li::marker {
+    color: $accent-color;
+  }
+
   &__phonetic__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
+  &__play__icon {
+    background-color: transparent;
+    border: none;
+  }
+
   &__synonyms__container {
     display: flex;
-    align-items: center;
     justify-content: start;
+    align-items: center;
     gap: 25px;
+    margin-bottom: 25px;
+    width: 1000px;
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: $heading-font-size;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    span {
+      color: $accent-color;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+  }
+
+  &__verb__listing {
+    // margin-bottom: 50px;
+    font-size: $base-font-size;
+  }
+
+  &__verb__span {
+    color: $span-color;
+    font-size: $base-font-size;
+    margin-bottom: 25px;
+    display: inline-block;
+  }
+
+  &__src__container {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    align-items: center;
+    margin-bottom: 50px;
+
+    h5 {
+      margin-bottom: 0px;
+      font-size: 14px;
+      color: $span-color;
+    }
   }
 }

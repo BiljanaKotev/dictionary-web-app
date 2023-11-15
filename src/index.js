@@ -1,5 +1,11 @@
 const api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
+const body = document.getElementById('body');
+const headerFontSelection = document.getElementById('header__font__selection');
+const selectBtn = document.getElementById('header__selection__submit__btn');
+const fontSerif = document.getElementById('header__font__serif');
+const fontMono = document.getElementById('header__font__mono');
+const headerFontUl = document.getElementById('header__font__ul');
 const searchbarForm = document.getElementById('header__searchbar__form');
 const headerSpan = document.getElementById('header__span');
 const word = document.getElementById('main__header');
@@ -9,6 +15,25 @@ const mainVerbListContainer = document.getElementById('main__verb__list__contain
 const synonymsSpan = document.getElementById('main__synonyms__span');
 const playIcon = document.getElementById('main__play__icon');
 const srcUrl = document.getElementById('src-url');
+const srcLink = document.querySelector('.main__src__link');
+
+headerFontUl.style.display = 'none';
+
+const displayFontOptions = () => {
+  headerFontUl.style.display = headerFontUl.style.display === 'none' ? 'block' : 'none';
+};
+
+const changeFontToSerif = () => {
+  document.body.style.fontFamily = 'InconsolataVariable';
+};
+
+const changeFontToMono = () => {
+  document.body.style.fontFamily = 'LoraVariable';
+};
+
+fontMono.addEventListener('click', changeFontToMono);
+fontSerif.addEventListener('click', changeFontToSerif);
+selectBtn.addEventListener('click', displayFontOptions);
 
 searchbarForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -71,7 +96,9 @@ searchbarForm.addEventListener('submit', (e) => {
           .forEach((meaning) => {
             meaning.definitions.forEach((definitionObject) => {
               const definition = definitionObject.definition;
+
               const nounListItem = document.createElement('li');
+              nounListItem.classList.add('pb-2');
               nounListItem.innerHTML += definition;
 
               // Attaching the listitem to the UL
@@ -103,10 +130,12 @@ searchbarForm.addEventListener('submit', (e) => {
 
               // Create List item
               const verbListItem = document.createElement('li');
+              verbListItem.classList.add('pb-2');
               verbListItem.innerHTML = verbDefinition;
 
               // Attaching the list item to the UL
-              verbList.className = 'main__verb__list';
+              verbList.className = 'main__verb__listing';
+
               verbList.appendChild(verbListItem);
 
               // // Verb Example
@@ -118,8 +147,9 @@ searchbarForm.addEventListener('submit', (e) => {
         mainVerbListContainer.appendChild(verbList);
 
         const verbSrcUrl = data[0].sourceUrls;
-        console.log('srcURL', data[0].sourceUrls);
         srcUrl.innerHTML = verbSrcUrl;
+
+        srcLink.href = verbSrcUrl;
       })
       .catch((error) => {
         console.error('An error occurred:', error);
