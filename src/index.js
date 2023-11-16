@@ -3,6 +3,7 @@ const api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 const body = document.getElementById('body');
 const main = document.getElementById('main');
 const headerFontSelection = document.getElementById('header__font__selection');
+const headerFontSelectionContainer = document.getElementById('header__font__selection__container');
 const selectBtn = document.getElementById('header__selection__submit__btn');
 const fontSansSerif = document.getElementById('header__font__sans__serif');
 const fontSerif = document.getElementById('header__font__serif');
@@ -50,6 +51,7 @@ const changeToDarkMode = () => {
   fontSansSerif.classList.toggle('dark');
   fontSerif.classList.toggle('header__font__serif__dark');
   fontMono.classList.toggle('header__font__mono__dark');
+  headerFontSelectionContainer.classList.toggle('header__font__selection__container__dark');
 };
 
 headerNavImg.addEventListener('click', changeToDarkMode);
