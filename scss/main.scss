@@ -69,16 +69,22 @@ body {
       color: $dark-mode-color-main;
     }
 
-    span {
-      &:hover {
-        color: $accent-color;
-      }
+    // sans serif span
+
+    span:hover {
+      color: $accent-color;
     }
 
     div {
       position: absolute;
       top: 25px;
     }
+  }
+
+  &__span {
+    margin-top: 25px;
+    color: $accent-color;
+    display: inline-block;
   }
 
   &__font__selection__container__dark {
@@ -158,12 +164,12 @@ body {
     padding-right: 15px;
   }
 
-  &__span {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 50px 0 25px 0;
-  }
+  // &__span {
+  //   text-align: center;
+  //   font-size: 18px;
+  //   font-weight: bold;
+  //   margin: 50px 0 25px 0;
+  // }
 
   &__error__container {
     text-align: center;
@@ -247,6 +253,7 @@ body {
       font-weight: bold;
     }
 
+    // main span
     span {
       color: $accent-color;
       font-weight: bold;
@@ -305,6 +312,10 @@ body {
 
   .main__verb__span {
     padding: 0 25px 0 25px;
+  }
+
+  .main__synonyms__span {
+    width: 20%;
   }
 
   .main__src__container {

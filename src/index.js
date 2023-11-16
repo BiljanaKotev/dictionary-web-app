@@ -25,7 +25,6 @@ const srcLink = document.querySelector('.main__src__link');
 const footer = document.getElementById('footer');
 
 headerErrorContainer.style.display = 'none';
-headerSpan.style.display = 'none';
 
 // UL display on click
 headerFontUl.style.display = 'none';
@@ -73,19 +72,26 @@ searchbarForm.addEventListener('submit', (e) => {
   } else {
     // FETCH API CALL
     fetch(`${api_url}/${searchbarInput}`)
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((data) => {
         if (!Array.isArray(data) || data.length === 0) {
-          headerSpan.style.display = 'block';
+          headerSpan.innerHTML = '';
           main.classList.toggle('display__none');
           footer.classList.toggle('display__none');
           headerErrorContainer.style.display = 'block';
           return;
         }
 
+        headerSpan.innerHTML = '';
+        console.log('received data', data);
         // Handle the data from the API here
         word.innerHTML = data[0].word;
-        word.innerHTML = '';
+
+        // Display the main and footer elements
+        main.style.display = 'block';
+        footer.style.display = 'block';
 
         const phonetics = data[0].phonetics;
         // Using find method to find the first instance of phonetic.text
