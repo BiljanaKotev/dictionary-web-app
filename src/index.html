@@ -21,11 +21,11 @@
         <img class="header__nav__logo" src="../assets/images/logo.svg" alt="logo" />
 
         <div class="header__font__selection__wrapper">
-          <span id="header__font__selection" class="header__font__selection">Sans Serif</span>
+          <button id="header__font__sans__serif"><span id="header__font__selection" class="header__font__selection">Sans Serif</span></button>
           <div id="header__font__selection__container" class="header__font__selection__container">
             <ul id="header__font__ul" class="list-unstyled header__font__ul">
-              <li><button id="header__font__serif">Serif</button></li>
-              <li><button id="header__font__mono">Mono</button></li>
+              <li><button id="header__font__serif" class="header__font__serif">Serif</button></li>
+              <li><button id="header__font__mono" class="header__font__mono">Mono</button></li>
             </ul>
           </div>
           <button id="header__selection__submit__btn" class="header__selection__submit__btn" type="submit">
@@ -33,7 +33,7 @@
           </button>
         </div>
 
-        <img class="header__nav__img" src="../assets/images/icon-moon.svg" alt="moon icon" />
+        <button id="header__nav__img" class="header__nav__img"><img src="../assets/images/icon-moon.svg" alt="moon icon" /></button>
       </nav>
 
       <div class="header__searchbar">
@@ -43,11 +43,14 @@
             <img class="header__searchbar__img" src="../assets/images/icon-search.svg" alt="search icon" />
           </div>
         </form>
-        <span id="header__span" class="header__span"></span>
+        <span id="header__span" class="header__span"><span class="fs-3 mb-3">😕</span> <br />No definition found</span>
+      </div>
+      <div id="header__error__container" class="header__error__container">
+        <p>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</p>
       </div>
     </header>
 
-    <main class="main">
+    <main id="main">
       <h1 id="main__header" class="main__header">keyboard</h1>
       <div class="main__phonetic__container">
         <span id="main__span" class="main__span">/ˈkiːbɔːd/</span>
@@ -92,7 +95,7 @@
       </div>
       <span id="main__verb__span" class="main__verb__span">"Keyboarding is the part of this job I hate the most."</span>
     </main>
-    <footer>
+    <footer id="footer">
       <hr />
       <div class="main__src__container">
         <h5>Source</h5>

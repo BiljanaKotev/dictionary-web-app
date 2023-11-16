@@ -1,13 +1,18 @@
 const api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
 const body = document.getElementById('body');
+const main = document.getElementById('main');
 const headerFontSelection = document.getElementById('header__font__selection');
 const selectBtn = document.getElementById('header__selection__submit__btn');
+const fontSansSerif = document.getElementById('header__font__sans__serif');
 const fontSerif = document.getElementById('header__font__serif');
 const fontMono = document.getElementById('header__font__mono');
 const headerFontUl = document.getElementById('header__font__ul');
+const headerNavImg = document.getElementById('header__nav__img');
 const searchbarForm = document.getElementById('header__searchbar__form');
+const headerInput = document.getElementById('header__searchbar__input');
 const headerSpan = document.getElementById('header__span');
+const headerErrorContainer = document.getElementById('header__error__container');
 const word = document.getElementById('main__header');
 const phoneticsSpan = document.getElementById('main__span');
 const mainNounListContainer = document.getElementById('main__noun__list__container');
@@ -16,27 +21,48 @@ const synonymsSpan = document.getElementById('main__synonyms__span');
 const playIcon = document.getElementById('main__play__icon');
 const srcUrl = document.getElementById('src-url');
 const srcLink = document.querySelector('.main__src__link');
+const footer = document.getElementById('footer');
 
+headerErrorContainer.style.display = 'none';
+headerSpan.style.display = 'none';
+
+// UL display on click
 headerFontUl.style.display = 'none';
-
 const displayFontOptions = () => {
   headerFontUl.style.display = headerFontUl.style.display === 'none' ? 'block' : 'none';
 };
 
-const changeFontToSerif = () => {
-  document.body.style.fontFamily = 'InconsolataVariable';
+const changeFontToSansSerif = () => {
+  document.body.style.fontFamily = 'InterVariable';
 };
 
-const changeFontToMono = () => {
+const changeFontToSerif = () => {
   document.body.style.fontFamily = 'LoraVariable';
 };
 
-fontMono.addEventListener('click', changeFontToMono);
-fontSerif.addEventListener('click', changeFontToSerif);
+const changeFontToMono = () => {
+  document.body.style.fontFamily = 'InconsolataVariable';
+};
+
+const changeToDarkMode = () => {
+  body.classList.toggle('dark__body');
+  headerInput.classList.toggle('header__searchbar__input__dark');
+  fontSansSerif.classList.toggle('dark');
+  fontSerif.classList.toggle('header__font__serif__dark');
+  fontMono.classList.toggle('header__font__mono__dark');
+};
+
+headerNavImg.addEventListener('click', changeToDarkMode);
+
 selectBtn.addEventListener('click', displayFontOptions);
+fontSansSerif.addEventListener('click', changeFontToSansSerif);
+fontSerif.addEventListener('click', changeFontToSerif);
+fontMono.addEventListener('click', changeFontToMono);
 
 searchbarForm.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  headerErrorContainer.style.display = 'none';
 
   let searchbarInput = document.getElementById('header__searchbar__input').value;
 
@@ -47,10 +73,17 @@ searchbarForm.addEventListener('submit', (e) => {
     fetch(`${api_url}/${searchbarInput}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data);
+        if (!Array.isArray(data) || data.length === 0) {
+          headerSpan.style.display = 'block';
+          main.classList.toggle('display__none');
+          footer.classList.toggle('display__none');
+          headerErrorContainer.style.display = 'block';
+          return;
+        }
+
         // Handle the data from the API here
         word.innerHTML = data[0].word;
-        // phonetics.innerHTML = data[0].phonetics[0].text;
+        word.innerHTML = '';
 
         const phonetics = data[0].phonetics;
         // Using find method to find the first instance of phonetic.text
@@ -90,7 +123,6 @@ searchbarForm.addEventListener('submit', (e) => {
         const meanings = data[0].meanings;
         meanings
           .filter((meaning) => {
-            console.log('noun', meaning.partOfSpeech === 'noun');
             return meaning.partOfSpeech === 'noun';
           })
           .forEach((meaning) => {
@@ -127,19 +159,28 @@ searchbarForm.addEventListener('submit', (e) => {
             meaning.definitions.forEach((definition) => {
               const verbDefinition = definition.definition;
               const verbExample = definition.example;
+              console.log('definition', definition);
+              console.log('verb-definition', verbDefinition);
+              console.log('verb-example', verbExample);
 
               // Create List item
               const verbListItem = document.createElement('li');
+              // Add bootsrap classname to list item
               verbListItem.classList.add('pb-2');
+
               verbListItem.innerHTML = verbDefinition;
 
-              // Attaching the list item to the UL
               verbList.className = 'main__verb__listing';
 
+              // Attaching the list item to the UL
               verbList.appendChild(verbListItem);
 
               // // Verb Example
-              mainVerbSpan.innerHTML = `"${verbExample}"`;
+              if (!Array.isArray(verbExample) || verbExample.length === 0) {
+                mainVerbSpan.innerHTML = 'Example not available';
+              } else {
+                mainVerbSpan.innerHTML = `"${verbExample}"`;
+              }
             });
           });
 

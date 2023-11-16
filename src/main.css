@@ -10,6 +10,15 @@ body {
   font-family: "InterVariable", sans-serif;
 }
 
+.dark__body {
+  color: #fff;
+  background-color: #000;
+}
+
+.display__none {
+  display: none;
+}
+
 .header {
   margin: 50px auto;
 }
@@ -24,22 +33,44 @@ body {
 .header__nav__logo {
   width: 28px;
 }
+.header__nav__img {
+  background-color: transparent;
+  border: none;
+}
 .header__font__selection__wrapper {
   position: relative;
   left: 200px;
 }
-.header__font__selection__wrapper select {
-  appearance: none;
+.header__font__selection__wrapper button {
+  background-color: transparent;
   border: none;
+}
+.header__font__selection__wrapper button.dark {
+  color: #fff;
+}
+.header__font__selection__wrapper span:hover {
+  color: #a445ed;
 }
 .header__font__selection__wrapper div {
   position: absolute;
   top: 25px;
 }
-.header__font__ul button {
-  background-color: transparent;
-  border: none;
-  display: block;
+.header__font__selection__container {
+  box-shadow: inset 0 0 50px #000, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 50px #000, -10px 0 80px #f0f, 10px 0 80px #0ff;
+  border-radius: 10px;
+  width: 100px;
+}
+.header__font__serif:hover {
+  color: #a445ed;
+}
+.header__font__serif__dark {
+  color: #fff;
+}
+.header__font__mono:hover {
+  color: #a445ed;
+}
+.header__font__mono__dark {
+  color: #fff;
 }
 .header__selection__submit__btn {
   border: none;
@@ -58,10 +89,23 @@ body {
   border: none;
   background-color: #e9e9e9;
   width: 100%;
-  color: #000;
+  color: #050505;
   font-size: 14px;
   font-weight: bold;
   padding-left: 10px;
+}
+.header__searchbar__input__dark {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+.header ::placeholder {
+  color: #050505;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.header__searchbar__input__dark::placeholder {
+  color: #fff;
 }
 .header__searchbar__img__container {
   position: relative;
@@ -73,8 +117,13 @@ body {
   padding-right: 15px;
 }
 .header__span {
-  margin-top: 50px;
-  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 50px 0 25px 0;
+}
+.header__error__container {
+  text-align: center;
 }
 
 .main__header {
@@ -109,7 +158,7 @@ body {
   margin-bottom: 50px;
   font-size: 14px;
 }
-.main li::marker {
+.main__noun__list li::marker {
   color: #a445ed;
 }
 .main__phonetic__container {
@@ -145,6 +194,9 @@ body {
 .main__verb__listing {
   font-size: 14px;
 }
+.main__verb__listing::marker {
+  color: #a445ed;
+}
 .main__verb__span {
   color: #757575;
   font-size: 14px;
@@ -162,4 +214,31 @@ body {
   margin-bottom: 0px;
   font-size: 14px;
   color: #757575;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    width: auto;
+  }
+  .header__nav {
+    gap: initial;
+  }
+  .header__font__selection__wrapper {
+    position: initial;
+  }
+  .main__listing {
+    padding-right: 15px;
+  }
+  .main__verb__span {
+    padding: 0 25px 0 25px;
+  }
+  .main__src__container {
+    display: initial;
+  }
+  .main__src__container > h5 {
+    text-decoration: underline;
+  }
+  .main__src__container > span {
+    text-decoration: underline;
+  }
 }
