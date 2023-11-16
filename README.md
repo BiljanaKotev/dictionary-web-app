@@ -1,6 +1,10 @@
+
+
 # Frontend Mentor - Dictionary web app
 
 ![Design preview for the Dictionary web app coding challenge](/preview.jpg)
+
+### Live site: https://biljanakotev.github.io/dictionary-web-app/
 
 ## Welcome! 👋
 
