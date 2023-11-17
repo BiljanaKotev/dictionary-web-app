@@ -85,7 +85,6 @@ searchbarForm.addEventListener('submit', (e) => {
 });
 
 function processData(data) {
-  console.log('data', data);
   if (!Array.isArray(data) || data.length === 0) {
     handleInvalidData();
     return;
