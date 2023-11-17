@@ -164,12 +164,9 @@ body {
     padding-right: 15px;
   }
 
-  // &__span {
-  //   text-align: center;
-  //   font-size: 18px;
-  //   font-weight: bold;
-  //   margin: 50px 0 25px 0;
-  // }
+  &__span {
+    color: $error-color;
+  }
 
   &__error__container {
     text-align: center;
@@ -207,7 +204,7 @@ body {
     margin-left: 10px; /* Adjust margin as needed */
   }
 
-  h3 {
+  &__meaning {
     color: $span-color;
     font-size: $sub-heading-font-size;
     margin-bottom: 25px;

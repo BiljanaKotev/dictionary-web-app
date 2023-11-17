@@ -121,6 +121,9 @@ body {
   bottom: 10px;
   padding-right: 15px;
 }
+.header__span {
+  color: #ff5252;
+}
 .header__error__container {
   text-align: center;
 }
@@ -148,7 +151,7 @@ body {
   background-color: #000; /* Set a color for the hr */
   margin-left: 10px; /* Adjust margin as needed */
 }
-.main h3 {
+.main__meaning {
   color: #757575;
   font-size: 16px;
   margin-bottom: 25px;
