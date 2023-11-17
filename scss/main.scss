@@ -10,9 +10,9 @@ $input-color: #e9e9e9;
 $dark-mode-input-color: #1f1f1f;
 $dark-mode-color-main: #fff;
 $dark-mode-color-bg: #000;
-$heading-font-size: 20px;
-$sub-heading-font-size: 16px;
-$base-font-size: 14px;
+$heading-font-size: 1.25rem;
+$sub-heading-font-size: 1rem;
+$base-font-size: 0.875rem;
 
 /* #f4f4f4 #ffffff #2d2d2d */
 
@@ -21,7 +21,7 @@ $base-font-size: 14px;
 }
 
 body {
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   font-family: 'InterVariable', sans-serif;
 }
@@ -41,13 +41,13 @@ body {
   &__nav {
     display: flex;
     justify-content: space-between;
-    gap: 200px;
+    // gap: 200px;
     margin-bottom: 50px;
     align-items: center;
     position: relative;
 
     &__logo {
-      width: 28px;
+      width: 1.75rem;
     }
 
     &__img {
@@ -58,7 +58,7 @@ body {
 
   &__font__selection__wrapper {
     position: relative;
-    left: 200px;
+    left: 12.5rem;
 
     button {
       background-color: transparent;
@@ -77,12 +77,12 @@ body {
 
     div {
       position: absolute;
-      top: 25px;
+      top: 1.563rem;
     }
   }
 
   &__span {
-    margin-top: 25px;
+    margin-top: 1.563rem;
     color: $accent-color;
     display: inline-block;
   }
@@ -92,7 +92,7 @@ body {
       /* inner right cyan short */ inset 20px 0 300px #f0f, /* inner left magenta broad */ inset -20px 0 300px #0ff, /* inner right cyan broad */ 0 0 50px #000,
       /* outer white */ -10px 0 80px #f0f, /* outer left magenta */ 10px 0 80px #0ff;
     border-radius: 10px;
-    width: 100px;
+    width: 6.25rem;
   }
 
   &__font__serif:hover {
@@ -126,15 +126,15 @@ body {
   }
 
   &__searchbar__input {
-    height: 40px;
-    border-radius: 5px;
-    // border: none;
+    height: 2.5rem;
+    border-radius: 0.313rem;
+    border: none;
     background-color: $input-color;
     width: 100%;
     color: $primary-color;
     font-size: $base-font-size;
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 0.625rem;
   }
 
   &__searchbar__input__dark {
@@ -144,9 +144,9 @@ body {
 
   ::placeholder {
     color: $primary-color;
-    font-size: 14px;
+    font-size: $base-font-size;
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 0.625rem;
   }
 
   &__searchbar__input__dark::placeholder {
@@ -160,8 +160,8 @@ body {
   &__searchbar__img {
     position: absolute;
     right: 0;
-    bottom: 10px;
-    padding-right: 15px;
+    bottom: 0.625;
+    padding-right: 0.938rem;
   }
 
   &__span {
@@ -187,7 +187,7 @@ body {
   &__heading__container {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 1.563rem;
   }
 
   &__heading__container > h2 {
@@ -198,20 +198,20 @@ body {
 
   &__heading__container hr {
     flex: 1; /* This will make the hr take up all available space, pushing h2 to the side */
-    height: 1px; /* Set a height for the hr */
+    height: 0.063rem; /* Set a height for the hr */
     border: none; /* Remove default border for hr */
     background-color: #000; /* Set a color for the hr */
-    margin-left: 10px; /* Adjust margin as needed */
+    margin-left: 0.625; /* Adjust margin as needed */
   }
 
   &__meaning {
     color: $span-color;
     font-size: $sub-heading-font-size;
-    margin-bottom: 25px;
+    margin-bottom: 1.563rem;
   }
 
   &__noun__list {
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
     font-size: $base-font-size;
 
     li {
@@ -237,8 +237,7 @@ body {
     justify-content: start;
     align-items: center;
     gap: 25px;
-    margin-bottom: 25px;
-    width: 1000px;
+    margin-bottom: 1.563rem;
 
     h3 {
       margin-bottom: 0;
@@ -269,20 +268,20 @@ body {
   &__verb__span {
     color: $span-color;
     font-size: $base-font-size;
-    margin-bottom: 25px;
+    margin-bottom: 1.563rem;
     display: inline-block;
   }
 
   &__src__container {
     display: flex;
-    gap: 25px;
-    font-size: 14px;
+    gap: 1.563rem;
+    font-size: $base-font-size;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 
     h5 {
       margin-bottom: 0px;
-      font-size: 14px;
+      font-size: $base-font-size;
       color: $span-color;
     }
   }
@@ -290,9 +289,8 @@ body {
 
 @media screen and (max-width: 480px) {
   body {
-    // width: auto;
     overflow-x: hidden;
-    padding: 0 25px 25px 25px;
+    padding: 0 1.563rem 1.563rem 1.563rem;
   }
 
   .header__nav {
@@ -304,11 +302,11 @@ body {
   }
 
   .main__listing {
-    padding-right: 15px;
+    padding-right: 0.938rem;
   }
 
   .main__verb__span {
-    padding: 0 25px 0 25px;
+    padding: 0 1.563rem 0 1.563rem;
   }
 
   .main__synonyms__span {
