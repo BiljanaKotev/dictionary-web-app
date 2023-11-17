@@ -212,9 +212,3 @@ function processData(data) {
 
   srcLink.href = verbSrcUrl;
 }
-
-function playAudio() {
-  headerSpan.innerHTML = 'To playback audio you must search for a word first';
-}
-
-playIcon.addEventListener('click', playAudio);
